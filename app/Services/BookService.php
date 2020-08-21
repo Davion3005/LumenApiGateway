@@ -30,6 +30,7 @@ class BookService
      * Obtain the full list of books from book service
      *
      * @return string
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function obtainBooks()
     {
@@ -41,6 +42,7 @@ class BookService
      * @param $book
      *
      * @return string
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function obtainBook($book)
     {
@@ -52,6 +54,7 @@ class BookService
      * @param array $data
      *
      * @return string
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function createBook($data)
     {
@@ -64,6 +67,7 @@ class BookService
      * @param $book
      *
      * @return string
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function editBook($data, $book)
     {
@@ -75,6 +79,7 @@ class BookService
      * @param $book
      *
      * @return string
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function deleteBook($book)
     {

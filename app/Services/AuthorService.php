@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Traits\ConsumesExternalService;
+use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Http\Request;
 
 class AuthorService
@@ -29,6 +30,7 @@ class AuthorService
 
     /**
      * Obtain the full list of author from author service
+     * @throws GuzzleException
      */
     public function obtainAuthors()
     {
@@ -40,6 +42,7 @@ class AuthorService
      * @param $data
      *
      * @return string
+     * @throws GuzzleException
      */
     public function createAuthor($data)
     {
@@ -51,6 +54,7 @@ class AuthorService
      *
      * @param int $author
      * @return string
+     * @throws GuzzleException
      */
     public function obtainAuthor($author)
     {
@@ -63,6 +67,7 @@ class AuthorService
      * @param $author
      *
      * @return string
+     * @throws GuzzleException
      */
     public function editAuthor($data, $author)
     {
@@ -71,6 +76,9 @@ class AuthorService
 
     public function deleteAuthor($author)
     {
-        return $this->performRequest('DELETE', "authors/{$author}");
+        try {
+            return $this->performRequest('DELETE', "authors/{$author}");
+        } catch (GuzzleException $e) {
+        }
     }
 }
